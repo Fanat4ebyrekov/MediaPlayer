@@ -10,7 +10,7 @@
         AllowsTransparency="True"
         WindowStyle="None"
         ResizeMode="NoResize"
-        
+        WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded" Foreground="{x:Null}">
     <Border Background="Black"
             CornerRadius="20">
@@ -33,28 +33,26 @@
                       MediaOpened="mpMyl_MediaOpened"
              />
 
-            <Expander
-                      Grid.Row="0"
+            <Expander Grid.Row="0"
                       Grid.RowSpan="2"
                       Header="           Нажми сюда -->"
-                      HorizontalContentAlignment="Center"
-                      VerticalContentAlignment="Top"
-                      HorizontalAlignment="Left"
-                      Width="250"
-                      Height="400" 
-                      VerticalAlignment="Top" 
+                      Width="auto"
+                      Height="300" 
                       Foreground="White"
                       Background="{x:Null}"
+                      VerticalAlignment="Top"
                       >
-                <Grid>
+                <Grid Grid.RowSpan="2"
+                      Grid.ColumnSpan="3" Height="245">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                     <Button Width="100"
                             Height="100"
@@ -66,8 +64,12 @@
                             BorderBrush="{x:Null}"
                             Foreground="White"
                             Background="{x:Null}" 
-                            Margin="-75,0,25,0" 
-                            Grid.Row="0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            Grid.Row="2" 
+                            Grid.Column="2" 
+                            Margin="10,0,0,0"
+
             />
 
                     <Button
@@ -79,8 +81,10 @@
                         FontFamily="Rockwell Condensed" 
                         Background="{x:Null}" 
                         BorderBrush="{x:Null}"
-                        Foreground="White" 
-                        Margin="-75,90,25,-97" Grid.RowSpan="2" 
+                        Foreground="White"
+                        Grid.Row="2"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
             />
 
                 </Grid>
@@ -90,8 +94,10 @@
                       Grid.ColumnSpan="3" 
                       Foreground="White" 
                       Background="{x:Null}">
-                <Grid Grid.Row="1"
-                  Grid.ColumnSpan="3">
+
+
+                <Grid
+                        Grid.ColumnSpan="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="3*"/>
