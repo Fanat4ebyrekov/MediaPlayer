@@ -137,6 +137,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="Images\Search.png" />
+    <Resource Include="Images\OnOff.png" />
     <Content Include="Videos\PulpFictionPumpkinAd.mp4" />
     <Resource Include="Images\Sound.png" />
     <Resource Include="Images\Pause.png" />

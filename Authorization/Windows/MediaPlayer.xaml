@@ -54,38 +54,42 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    <Button Width="100"
-                            Height="100"
-                            Content="Exit"
+                    <Button Width="35"
+                            Height="35"
                             x:Name="Exit"
                             Click="Exit_Click"
                             FontSize="20" 
                             FontFamily="Rockwell Condensed" 
                             BorderBrush="{x:Null}"
-                            Foreground="White"
-                            Background="{x:Null}" 
+                            Foreground="White" 
                             VerticalAlignment="Top"
                             HorizontalAlignment="Left"
                             Grid.Row="2" 
                             Grid.Column="2" 
-                            Margin="10,0,0,0"
-
-            />
+                            Margin="10 0 0 0" Cursor="Hand"
+            >
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Images/OnOff.png"/>
+                        </Button.Background>
+                    </Button>
 
                     <Button
-                        Width="100"
-                        Height="100"
-                        Content="Browse"
+                        Width="35"
+                        Height="35"
                         Click="Button_Click"
                         FontSize="20" 
                         FontFamily="Rockwell Condensed" 
-                        Background="{x:Null}" 
                         BorderBrush="{x:Null}"
                         Foreground="White"
                         Grid.Row="2"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
-            />
+                        Margin="90 0 0 0" Cursor="Hand"
+            >
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Images/Search.png"/>
+                        </Button.Background>
+                    </Button>
 
                 </Grid>
             </Expander>
@@ -93,9 +97,8 @@
             <Expander Grid.Row="2"
                       Grid.ColumnSpan="3" 
                       Foreground="White" 
-                      Background="{x:Null}">
-
-
+                      Background="{x:Null}"
+                      IsExpanded="True">
                 <Grid
                         Grid.ColumnSpan="3">
                     <Grid.ColumnDefinitions>
