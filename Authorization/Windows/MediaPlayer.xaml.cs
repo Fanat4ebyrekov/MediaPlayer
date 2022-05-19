@@ -35,7 +35,7 @@ namespace Authorization.Windows
             timer.Interval = TimeSpan.FromSeconds(0.5);
             timer.Tick += new EventHandler(timer_Tick);
 
-            tiempo.Interval = new TimeSpan(0, 0, 0);
+            tiempo.Interval = new TimeSpan(0, 0, 0, 42);
 
         }
 
