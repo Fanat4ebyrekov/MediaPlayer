@@ -58,43 +58,8 @@ namespace Authorization.Windows
             mpMyl.LoadedBehavior = ss;
         }
 
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            Environment.Exit(0);
-        }
 
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                OpenFileDialog ofd = new OpenFileDialog();
-                ofd.Filter = "MP3 Files (*.mp3)|*.mp3|MP4 File (*.mp4)|*.mp4|3GP File (*.3gp)|*.3gp|Audio File (*.wma)|*.wma|MOV File (*.mov)|*.mov|AVI File (*.avi)|*.avi|Flash Video(*.wmv)|*.wmv|MPEG-2 File(*.mpeg)|*.mpeg|WebM Video (*.webm)|*.webm|All files (*.*)|*.*";
-                ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                ofd.ShowDialog();
-                string filename = ofd.FileName;
-                if (filename != "")
-                {
-
-                    Uri uri = new Uri(filename);
-                    mpMyl.Source = uri;
-                    mpMyl.Volume = 100.5;
-                    MediaState opt = MediaState.Play;
-                    mpMyl.LoadedBehavior = opt;
-                }
-                else
-                {
-                    System.Windows.Forms.MessageBox.Show("No Selection", "Empty");
-                }
-            }
-            catch (Exception e1)
-            {
-                System.Console.WriteLine("Error message: " + e1.Message);
-                throw;
-            }
-        }
-
-        string videoURL = @"C:\Users\Chebyrek\Source\Repos\MediaPlayer\Authorization\Videos\PulpFictionPumpkinAd.mp4";
+        string videoURL = @"";
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             try
@@ -107,7 +72,7 @@ namespace Authorization.Windows
             catch (Exception ex)
             {
                 System.Console.WriteLine("Error Message: " + ex.Message);
-                throw;
+                return;
             }
         }
 
@@ -187,11 +152,9 @@ namespace Authorization.Windows
 
             if (!isPlaying)
             {
-
-
-                Go.Source = new BitmapImage(new Uri(@"/Images\Pause.png", UriKind.Relative));
                 MediaState ms = MediaState.Play;
                 mpMyl.LoadedBehavior = ms;
+                Go.Source = new BitmapImage(new Uri(@"/Images\Pause.png", UriKind.Relative));
 
             }
             else
@@ -214,6 +177,47 @@ namespace Authorization.Windows
         private void Go_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DoPlay();
+        }
+
+        private void Image_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "MP3 Files (*.mp3)|*.mp3|MP4 File (*.mp4)|*.mp4|3GP File (*.3gp)|*.3gp|Audio File (*.wma)|*.wma|MOV File (*.mov)|*.mov|AVI File (*.avi)|*.avi|Flash Video(*.wmv)|*.wmv|MPEG-2 File(*.mpeg)|*.mpeg|WebM Video (*.webm)|*.webm|All files (*.*)|*.*";
+                ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                ofd.ShowDialog();
+                string filename = ofd.FileName;
+                if (filename != "")
+                {
+
+                    Uri uri = new Uri(filename);
+                    mpMyl.Source = uri;
+                    mpMyl.Volume = 100;
+                    MediaState opt = MediaState.Play;
+                    mpMyl.LoadedBehavior = opt;
+                  
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("No Selection", "Empty");
+                }
+            }
+            catch (Exception e1)
+            {
+                System.Console.WriteLine("Error message: " + e1.Message);
+                throw;
+            }
+        }
+
+        private void Exit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void slideravance_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            mpMyl.Position = TimeSpan.FromSeconds(slideravance.Value);
         }
     }  
 }
